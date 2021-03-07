@@ -18,8 +18,10 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(EstimDiagnostics)
+library(doParallel)
 library(ggplot2)
 
+registerDoSEQ()
 s<-c(1e1,1e2,1e3)
 Nmc=6e2
 ```
@@ -60,7 +62,7 @@ grid.arrange(arrangeGrob(p1[[2]], p2[[2]], p3[[2]], ncol=2))
 ```
 
 ## Unit tests
-Once it is shown by means of exploratory analysis that the estimators of interest follow some theoretical distribution, it is desirable to write unit tests for them. This package provides the following `expect_` type functions as an extension of testthat:
+Once it is shown by means of exploratory analysis that the estimators of interest follow some theoretical distribution, it is desirable to write unit tests for them. This package provides the following `expect_` type functions as an extension of testthat package:
 
 * `expect_distfit`
 * `expect_gaussian`
@@ -68,13 +70,18 @@ Once it is shown by means of exploratory analysis that the estimators of interes
 
 In order to test correctness of the mu estimator, `expect_mean_equal` is called. It uses t-test to test the hypothesis that the empirical mean is different from a chosen value.
 ```{r}
-sam_m <- experiment[experiment$s==1e1,1]
+s <- 1e1
+set.seed(1)
+
+experiment <- Estim_diagnost(Nmc, s=s, Inference)
+
+sam_m <- experiment[,1]
 expect_mean_equal(x=sam_m, mu=0)
 ```
 
 For variance estimator we make a unit test based on the fact that the empirical variance follows a chi-square distribution. Tests for matching empirical distributions to parametric ones are implemented in `expect_distfit` function. 
 ```{r}
-sam_v <- experiment[experiment$s==1e1,2]*10
+sam_v <- experiment[,2]*10
 expect_distfit(sample = sam_v, nulldist=pchisq, df=10)
 ```
 

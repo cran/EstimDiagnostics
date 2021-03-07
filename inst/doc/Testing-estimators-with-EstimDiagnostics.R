@@ -7,8 +7,10 @@ knitr::opts_chunk$set(
 
 ## ----setup--------------------------------------------------------------------
 library(EstimDiagnostics)
+library(doParallel)
 library(ggplot2)
 
+registerDoSEQ()
 s<-c(1e1,1e2,1e3)
 Nmc=6e2
 
@@ -40,10 +42,15 @@ p3<-estims_qqplot(experiment[experiment$s==1e3,], sep=TRUE, distribution = dist3
 grid.arrange(arrangeGrob(p1[[2]], p2[[2]], p3[[2]], ncol=2))
 
 ## -----------------------------------------------------------------------------
-sam_m <- experiment[experiment$s==1e1,1]
+s <- 1e1
+set.seed(1)
+
+experiment <- Estim_diagnost(Nmc, s=s, Inference)
+
+sam_m <- experiment[,1]
 expect_mean_equal(x=sam_m, mu=0)
 
 ## -----------------------------------------------------------------------------
-sam_v <- experiment[experiment$s==1e1,2]*10
+sam_v <- experiment[,2]*10
 expect_distfit(sample = sam_v, nulldist=pchisq, df=10)
 

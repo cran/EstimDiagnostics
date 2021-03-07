@@ -1,11 +1,12 @@
-76e5f2ee39d4285f74ed85e519003180 *DESCRIPTION
+918bc2be1a9f958376f76881c7e6b205 *DESCRIPTION
 8dc5e9cfb0a5dc1363c105142df9813c *NAMESPACE
+2c97ae1792d8b5b302c281b23ff1ccfa *NEWS.md
 468c655f224c0ddc5792baac6480df37 *R/estim_diagnostics.R
 a60c5337d4c62ca7acd4e811e9ab51d1 *R/expect_distfit.R
-6ae9e832128bc1a850ea40b5015b1563 *build/vignette.rds
-281611e2ad941c2b85e6fcda538427e8 *inst/doc/Testing-estimators-with-EstimDiagnostics.R
-c5af2bfbf4627825c5e860d98c19a732 *inst/doc/Testing-estimators-with-EstimDiagnostics.Rmd
-89024ac2d7372f0d04ba5b0e3957ba07 *inst/doc/Testing-estimators-with-EstimDiagnostics.html
+180860f70adc8bcdb849c1fc95d7d8f3 *build/vignette.rds
+42df1c3fddfcbdb4d61c6de4f20255ba *inst/doc/Testing-estimators-with-EstimDiagnostics.R
+116e62beb89f7f0c9de25f963b4c0e4a *inst/doc/Testing-estimators-with-EstimDiagnostics.Rmd
+e933518e9eeb9962a30038d0ff6e324b *inst/doc/Testing-estimators-with-EstimDiagnostics.html
 d7b04d0e1513edc6cb233895429e5d0d *man/Estim_diagnost.Rd
 f154116fbd1c1a4d5c01aeee715fc699 *man/estims_boxplot.Rd
 9260375a77ef90e3ba39580fb1067373 *man/estims_qqplot.Rd
@@ -14,4 +15,4 @@ f154116fbd1c1a4d5c01aeee715fc699 *man/estims_boxplot.Rd
 71ed2e85410afb256b6884f5ce889519 *man/expect_mean_equal.Rd
 c6c7a143436ba558f635ec809623074d *tests/testthat.R
 fe1375654584ea51f5cbc1418fd525f2 *tests/testthat/test_converter.R
-c5af2bfbf4627825c5e860d98c19a732 *vignettes/Testing-estimators-with-EstimDiagnostics.Rmd
+116e62beb89f7f0c9de25f963b4c0e4a *vignettes/Testing-estimators-with-EstimDiagnostics.Rmd
